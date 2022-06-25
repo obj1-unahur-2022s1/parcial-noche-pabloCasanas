@@ -1,3 +1,4 @@
+//TEST ok
 import comidas.*
 import comensales.*
 describe "Test de Comensales" {
