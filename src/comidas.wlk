@@ -1,14 +1,15 @@
+//peso y valoracion lo apropiado eran métodos abstractos en Plato
+//Otra forma de implementar corteDeCalidadMaxima() de Parrillada
 class Plato {
-	var property peso = 0
-	var property valoracion = 0
-	
+	method peso()
+	method valoracion()
 	method aptoVegetariano()
 	method esAbundante() = self.peso() > 250
 }
 
 class Provoleta inherits Plato {
 	var property tieneEspecias
-	
+	const property peso
 	override method aptoVegetariano() = !tieneEspecias
 	method esEspecial() = self.esAbundante() || tieneEspecias
 	override method valoracion() = if(self.esEspecial()) 120 else 80
@@ -36,7 +37,8 @@ class Parrillada inherits Plato {
 	method agregarCorte(corte) {cortesDeCarne.add(corte)}
 	override method peso() = cortesDeCarne.sum({c => c.peso()})
 	override method aptoVegetariano() = false
-	method corteDeCalidadMaxima() = cortesDeCarne.map({c => c.calidad()}).max()
+	//method corteDeCalidadMaxima() = cortesDeCarne.map({c => c.calidad()}).max()
+	method corteDeCalidadMaxima() = cortesDeCarne.max({c=>c.calidad()}).calidad()
 	method cantidadDeCortes() = cortesDeCarne.size()
 	override method valoracion() = (15 * self.corteDeCalidadMaxima() - self.cantidadDeCortes()).max(0)
 }

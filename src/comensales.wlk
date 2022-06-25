@@ -1,3 +1,5 @@
+//```condicionAdicional()``` en HambrePopular debe retornar obligatoriamente true, porque sino ```estaSatisfecho()``` de Comensales se rompe al queres hacer el && con vacio
+
 import comidas.*
 
 class Comensales {
@@ -18,7 +20,7 @@ class Vegetariano inherits Comensales {
 
 class HambrePopular inherits Comensales {
 	override method leAgrada(unaComida) = unaComida.esAbundante()
-	override method condicionAdicional(){}
+	override method condicionAdicional(){return true}
 }
 
 class PaladarFino inherits Comensales {

@@ -1,3 +1,4 @@
+//TEST ok
 import comidas.*
 describe "Test de Comidas" {
 	const hamb1 = new HamburguesaDeCarne(pan = panCasero)
